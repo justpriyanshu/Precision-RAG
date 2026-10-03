@@ -19,10 +19,10 @@ class ApiBackend:
         r.raise_for_status()
         return r.json()
 
-    def search(self, query, mode="hybrid_rerank", category=None, source=None, top_k=5, generate=False):
+    def search(self, query, mode="hybrid_rerank", category=None, source=None, top_k=5, generate=False, explain=False):
         r = requests.post(f"{self.url}/search", timeout=60, json={
             "query": query, "mode": mode, "category": category, "source": source,
-            "top_k": top_k, "generate": generate})
+            "top_k": top_k, "generate": generate, "explain": explain})
         r.raise_for_status()
         return r.json()
 

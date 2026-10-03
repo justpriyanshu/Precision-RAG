@@ -46,12 +46,14 @@ class Retriever:
         self.lock = RLock()
 
     def search(self, query, mode='hybrid_rerank', category=None, source=None, top_k=None,
-               use_cache=True, fusion=None, overrides=None):
+               use_cache=True, fusion=None, overrides=None, explain=False):
+        """explain=True adds per-hit provenance (dense_rank, sparse_rank, fused_rank, rerank_delta).
+        It costs two extra small queries, so benchmarks leave it off."""
         started = time.perf_counter()
         with self.lock:
-            return self._search(started, query, mode, category, source, top_k, use_cache, fusion, overrides)
+            return self._search(started, query, mode, category, source, top_k, use_cache, fusion, overrides, explain)
 
-    def _search(self, started, query, mode, category, source, top_k, use_cache, fusion, overrides):
+    def _search(self, started, query, mode, category, source, top_k, use_cache, fusion, overrides, explain=False):
         query = ' '.join(query.split())
         if not query or mode not in {'dense', 'hybrid', 'hybrid_rerank'}:
             raise ValueError('Nonempty query and a supported retrieval mode are required')
@@ -63,7 +65,7 @@ class Retriever:
         category = category.strip().lower() if category else None
         source = source.strip().lower().removeprefix('www.') if source else None
         use_cache = use_cache and self.cfg['cache']['enabled']
-        key = (query, mode, category, source, k, fusion, tuple(sorted(r.items())))
+        key = (query, mode, category, source, k, fusion, tuple(sorted(r.items())), explain)
         cached = self.results.get(key) if use_cache else None
         if cached is not None:
             cached['timings_ms'] = {'cache_hit': 1.0, 'total': (time.perf_counter() - started) * 1000}
@@ -106,6 +108,12 @@ class Retriever:
                     query=fused, query_filter=flt, limit=out, with_payload=True).points
                 hits = hits_from(points)
         timing['vector_db'] = (time.perf_counter() - t) * 1000
+        for position, hit in enumerate(hits, 1):
+            hit['fused_rank'] = position
+        if explain:
+            t = time.perf_counter()
+            self._annotate_branches(hits, d, s, mode, flt, params, prefetch if mode != 'dense' else k)
+            timing['explain'] = (time.perf_counter() - t) * 1000
         if mode == 'hybrid_rerank' and hits:
             t = time.perf_counter()
             scores = self.models.rerank(query, [h['text'] for h in hits])
@@ -114,6 +122,8 @@ class Retriever:
             for hit, score in zip(hits, scores):
                 hit['fusion_score'], hit['score'] = hit['score'], score
             hits.sort(key=lambda h: (-h['score'], h['pid']))
+            for position, hit in enumerate(hits, 1):
+                hit['rerank_delta'] = hit['fused_rank'] - position
             timing['rerank'] = (time.perf_counter() - t) * 1000
         timing['total'] = (time.perf_counter() - started) * 1000
         result = {'query': query, 'mode': mode, 'fusion': None if mode == 'dense' else fusion,
@@ -121,6 +131,25 @@ class Retriever:
         if use_cache:
             self.results.put(key, result)
         return result
+
+    def _annotate_branches(self, hits, dense_query, sparse_query, mode, flt, params, limit):
+        """Where each hit sat in the dense-only and keyword-only rankings before fusion."""
+        if mode == 'dense':
+            for hit in hits:
+                hit['dense_rank'] = hit['fused_rank']   # no sparse branch in dense mode, so no sparse_rank key
+            return
+        client, name = self.store.client, self.store.name
+        dense_pts = client.query_points(name, query=dense_query, using='dense', query_filter=flt,
+                                        search_params=params, limit=limit, with_payload=False).points
+        dense_rank = {p.id: i + 1 for i, p in enumerate(dense_pts)}
+        sparse_rank = {}
+        if sparse_query is not None:
+            sparse_pts = client.query_points(name, query=sparse_vector(sparse_query), using='bm25',
+                                             query_filter=flt, limit=limit, with_payload=False).points
+            sparse_rank = {p.id: i + 1 for i, p in enumerate(sparse_pts)}
+        for hit in hits:
+            hit['dense_rank'] = dense_rank.get(hit['pid'])
+            hit['sparse_rank'] = sparse_rank.get(hit['pid'])
 
     def upsert(self, pid, text, source='custom', category='custom'):
         text, source, category = ' '.join(text.split()), source.strip().lower(), category.strip().lower()

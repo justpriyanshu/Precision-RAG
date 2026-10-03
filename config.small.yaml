@@ -35,11 +35,15 @@ index:
   batch_size: 512
   indexing_threshold: 20000
   wait_timeout_seconds: 7200
+# runtime.* and retrieval.* are not part of the index build identity, so they can be
+# changed without re-indexing. models.* and index.* cannot.
+runtime:
+  threads: 8            # ONNX threads for CPU inference; set to your physical core count
 retrieval:
   top_k: 5
-  prefetch_limit: 50
-  rerank_candidates: 30
-  hnsw_ef: 128
+  prefetch_limit: 100   # candidates per branch (dense, keyword) before fusion
+  rerank_candidates: 50 # fused candidates scored by the cross-encoder
+  hnsw_ef: 256
   fusion: rrf
   rrf_k: 60
   weighted_alpha: 0.6

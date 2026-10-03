@@ -49,7 +49,7 @@ class MockBackend:
     def stats(self):
         return {"points": len(self.store), "status": "mock"}
 
-    def search(self, query, mode="hybrid_rerank", category=None, source=None, top_k=5, generate=False):
+    def search(self, query, mode="hybrid_rerank", category=None, source=None, top_k=5, generate=False, explain=False):
         rng = random.Random(hash((query, mode)) & 0xFFFF)
         t0 = time.perf_counter()
         q = _tokens(query)
@@ -69,6 +69,12 @@ class MockBackend:
                 s = -4 + 12 * overlap + rng.uniform(-0.8, 0.8)   # cross-encoder logits
             scored.append({**p, "score": round(s, 4)})
         hits = sorted(scored, key=lambda h: -h["score"])[:top_k]
+        if explain:
+            for i, h in enumerate(hits, 1):
+                h["dense_rank"] = i if mode == "dense" else rng.randint(1, 8)
+                h["sparse_rank"] = None if mode == "dense" else rng.randint(1, 8)
+                h["fused_rank"] = i if mode != "hybrid_rerank" else min(8, i + rng.randint(-1, 3))
+                h["rerank_delta"] = (h["fused_rank"] - i) if mode == "hybrid_rerank" else None
 
         timings = {"encode": rng.uniform(12, 22), "vector_db": rng.uniform(8, 30) if mode == "dense" else rng.uniform(20, 45)}
         if mode == "hybrid_rerank":

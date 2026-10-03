@@ -21,6 +21,7 @@ class SearchRequest(BaseModel):
     top_k: int = Field(default=5, ge=1, le=100)
     generate: bool = False
     use_cache: bool = True
+    explain: bool = False
 
     @field_validator('query')
     @classmethod

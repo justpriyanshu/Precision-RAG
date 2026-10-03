@@ -94,15 +94,31 @@ def run_chips(r: dict):
     st.markdown(f'<div class="run">{"".join(chips)}</div>', unsafe_allow_html=True)
 
 
+def provenance(h: dict) -> str:
+    """Why this passage is where it is: branch ranks before fusion and what the reranker did."""
+    parts = []
+    if "dense_rank" in h:
+        parts.append(f"dense #{h['dense_rank']}" if h["dense_rank"] is not None else "not in dense candidates")
+    if "sparse_rank" in h:
+        parts.append(f"keyword #{h['sparse_rank']}" if h["sparse_rank"] is not None else "not in keyword candidates")
+    delta = h.get("rerank_delta")
+    if delta is not None:
+        parts.append("reranker kept it" if delta == 0 else f"reranker moved it {'up' if delta > 0 else 'down'} {abs(delta)}")
+    return " · ".join(parts)
+
+
 def card(i: int, h: dict, trim: int | None = None) -> str:
     text = h.get("text", "")
     if trim and len(text) > trim:
         text = text[:trim].rstrip() + "…"
+    prov = provenance(h)
+    prov_html = f'<div class="prov">{esc(prov)}</div>' if prov else ""
     return f"""
 <div class="card {'top' if i == 1 else ''}">
   <div class="head"><span class="rank">{i}</span><span class="score">{float(h.get('score', 0)):.3f}</span></div>
   <div class="text">{esc(text)}</div>
   <div class="foot"><span><b>{esc(h.get('source', ''))}</b></span><span>{esc(h.get('category', ''))}</span><span>id {esc(h.get('pid'))}</span></div>
+  {prov_html}
 </div>"""
 
 
@@ -162,7 +178,7 @@ with tab_search:
     if go and q.strip():
         with st.spinner("Searching"):
             r = call(backend.search, q.strip(), mode=mode, category=cat, source=src.strip() or None,
-                     top_k=top_k, generate=gen)
+                     top_k=top_k, generate=gen, explain=True)
         if r:
             run_chips(r)
             if r.get("generation_error"):
@@ -186,7 +202,7 @@ with tab_compare:
         cols = st.columns(3)
         for col, m in zip(cols, MODES):
             with col:
-                r = call(backend.search, q2.strip(), mode=m, top_k=top_k)
+                r = call(backend.search, q2.strip(), mode=m, top_k=top_k, explain=True)
                 if r:
                     total = r.get("timings_ms", {}).get("total", 0)
                     st.markdown(f'<div class="colhead">{MODES[m]}</div><div class="colsub">{total:.0f} ms</div>',
@@ -253,20 +269,27 @@ with tab_eval:
 
     selection = st.selectbox("Measured mode", df["mode"].tolist())
     best = df[df["mode"] == selection].iloc[0]
-    stats_row = [("Context precision", best.get("context_precision"), 0.75, ">", "{:.2f}"),
-                 ("Context recall", best.get("context_recall"), 0.70, ">", "{:.2f}"),
-                 ("p95 latency", best.get("p95"), LATENCY_SLA_MS, "<", "{:.0f} ms"),
-                 ("Passages indexed", None if backend.is_mock else stats.get("points"), 100_000, ">=", "{:,.0f}")]
+    def ci_text(key):
+        ci = best.get(f"{key}_ci95") if f"{key}_ci95" in df.columns else None
+        if isinstance(ci, (list, tuple)) and len(ci) == 2 and not any(pd.isna(ci)):
+            return f"95% interval {ci[0]:.2f} to {ci[1]:.2f}"
+        return ""
+
+    stats_row = [("Context precision", best.get("context_precision"), 0.75, ">", "{:.2f}", ci_text("context_precision")),
+                 ("Context recall", best.get("context_recall"), 0.70, ">", "{:.2f}", ci_text("context_recall")),
+                 ("p95 latency", best.get("p95"), LATENCY_SLA_MS, "<", "{:.0f} ms", ""),
+                 ("Passages indexed", None if backend.is_mock else stats.get("points"), 100_000, ">=", "{:,.0f}", "")]
     cols = st.columns(4)
-    for col, (lbl, val, tgt, op, fmt) in zip(cols, stats_row):
+    for col, (lbl, val, tgt, op, fmt, ci) in zip(cols, stats_row):
         if val is None or pd.isna(val):
             cls, shown = "", "—"
         else:
             ok = (float(val) >= tgt if op == ">=" else float(val) > tgt) if op in (">", ">=") else float(val) < tgt
             cls, shown = ("ok" if ok else "miss"), fmt.format(float(val))
         tgt_txt = f"target {'at least' if op == '>=' else 'above' if op == '>' else 'under'} {tgt:,}" + (" ms" if "ms" in fmt else "")
+        ci_html = f'<div class="tgt">{ci}</div>' if ci else ""
         col.markdown(f'<div class="stat"><div class="num {cls}">{shown}</div>'
-                     f'<div class="lbl">{lbl}</div><div class="tgt">{tgt_txt}</div></div>', unsafe_allow_html=True)
+                     f'<div class="lbl">{lbl}</div><div class="tgt">{tgt_txt}</div>{ci_html}</div>', unsafe_allow_html=True)
 
     st.markdown('<div class="sec">What each stage adds</div>', unsafe_allow_html=True)
     metric_cols = [c for c in ["context_precision", "context_recall", "mrr@10", "recall@5"] if c in df.columns]

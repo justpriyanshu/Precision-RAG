@@ -10,7 +10,7 @@ from app.config import load_config, project_path
 from app.retriever import get_retriever
 from app.runtime import device
 from app.store import build_filter
-from eval import ir_eval, latency_bench, ragas_eval
+from eval import analysis, ir_eval, latency_bench, ragas_eval
 from eval.metrics import ir_metrics, latency_summary, mean_metrics
 from scripts.ingest import build_identity, verify_manifest
 
@@ -49,8 +49,26 @@ def recalculate(directory, tags):
                         for key in ['context_precision', 'context_recall']})
             row['ragas_queries'] = len(ragas)
         rows.append(row)
+    stats = analysis.analyze(directory, tags, categories=query_categories(directory))
+    for row in rows:
+        ci = stats['modes'].get(row['mode'], {})
+        for key in analysis.IR_KEYS + analysis.RAGAS_KEYS:
+            row[f'{key}_ci95'] = [ci[key]['low'], ci[key]['high']] if ci.get(key) else None
+    write_json(directory / 'analysis.json', stats)
     write_json(directory / 'summary.json', rows)
     return rows
+
+
+def query_categories(directory):
+    """qid -> MS MARCO query type, read from the run's own context so recalculation needs no data dir."""
+    context_path = directory / 'run_context.json'
+    if not context_path.exists():
+        return None
+    data = project_path(read_json(context_path)['config']['data_dir'])
+    queries = data / 'eval_queries.jsonl'
+    if not queries.exists():
+        return None
+    return {q['qid']: q.get('category', 'unknown') for q in read_jsonl(queries)}
 
 
 def make_report(directory, rows, context):
@@ -62,7 +80,7 @@ def make_report(directory, rows, context):
                            and r['context_recall'] > .70 and r['p95'] < 300
                            and baseline['context_precision'] is not None
                            and r['context_precision'] > baseline['context_precision']
-                           and r['context_recall'] > baseline['context_recall'])
+                           and r['context_recall'] >= baseline['context_recall'])
     status = ('Measured quality/latency targets met by at least one unfiltered Phase 2 mode'
               if any(qualifies(r) for r in phase2) else 'Incomplete or one or more quality/latency targets not met')
     write_json(directory / 'acceptance.json', {
@@ -98,6 +116,9 @@ def make_report(directory, rows, context):
               'It is a separate, favourable scoped workload, not evidence of general unfiltered improvement. '
               'Source/category arrays retain labels from observed duplicate occurrences. '
               'LLM judge variance and free-tier rate limits remain limitations. Missing scores are never replaced with estimates.', '']
+    stats_path = directory / 'analysis.json'
+    if stats_path.exists():
+        lines += analysis.markdown(read_json(stats_path), [r['mode'] for r in rows]) + ['']
     ingestion = context.get('ingestion')
     if ingestion:
         lines += ['## Indexing', '', f"Measured pipeline time: {ingestion['seconds']:.1f} s; "

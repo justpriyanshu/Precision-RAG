@@ -67,3 +67,24 @@ def test_presentation_keeps_frozen_collection_read_only(service, monkeypatch):
         assert client.delete('/passages/42').status_code == 409
         result = client.post('/search', json={'query': 'evidence', 'mode': 'dense'}).json()
         assert result['hits'][0]['text'] == 'existing evidence'
+
+
+@pytest.mark.parametrize('mode', ['dense', 'hybrid', 'hybrid_rerank'])
+def test_explain_adds_branch_ranks_without_changing_order(service, mode):
+    service.upsert(1, 'dog normal temperature', 'vet.org', 'numeric')
+    service.upsert(2, 'dog temperature fever', 'vet.org', 'description')
+    service.upsert(3, 'cat normal temperature', 'cats.org', 'numeric')
+    plain = service.search('dog temperature', mode=mode, use_cache=False)
+    explained = service.search('dog temperature', mode=mode, use_cache=False, explain=True)
+    assert [h['pid'] for h in plain['hits']] == [h['pid'] for h in explained['hits']]
+    assert all('dense_rank' not in h and 'sparse_rank' not in h for h in plain['hits'])
+    assert all(h['fused_rank'] >= 1 for h in explained['hits'])
+    for position, hit in enumerate(explained['hits'], 1):
+        assert hit['dense_rank'] is None or hit['dense_rank'] >= 1
+        if mode == 'dense':
+            assert hit['dense_rank'] == position and 'sparse_rank' not in hit
+        else:
+            assert 'sparse_rank' in hit
+        if mode == 'hybrid_rerank':
+            assert hit['rerank_delta'] == hit['fused_rank'] - position
+    assert 'explain' in explained['timings_ms']

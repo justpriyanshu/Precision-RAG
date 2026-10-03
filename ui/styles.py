@@ -94,6 +94,7 @@ button[data-variant="pills"]:focus-visible { border-color: var(--moss) !importan
 .card .text { font-size: 15px; line-height: 1.5; color: var(--ink); }
 .card .foot { margin-top: 10px; font-size: 13px; color: var(--slate); display: flex; gap: 14px; }
 .card .foot b { color: var(--ink); font-weight: 600; }
+.card .prov { margin-top: 6px; font-size: 12.5px; color: var(--moss); font-weight: 600; }
 
 .stack .card { margin-bottom: 12px; padding: 14px 16px 12px; }
 .stack .card .rank { font-size: 22px; }

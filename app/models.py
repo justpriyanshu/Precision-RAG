@@ -15,7 +15,15 @@ class ModelBundle:
 
     @property
     def kwargs(self):
-        return {'cache_dir': str(project_path('data/models')), 'threads': self.cfg['models']['threads']}
+        # runtime.threads overrides models.threads without changing the index build identity.
+        threads = (self.cfg.get('runtime') or {}).get('threads') or self.cfg['models']['threads']
+        return {'cache_dir': str(project_path('data/models')), 'threads': threads}
+
+    @property
+    def reranker_name(self):
+        # retrieval.reranker lets the cross-encoder change without invalidating the index,
+        # since only models.* and index.* are part of the build identity.
+        return self.cfg['retrieval'].get('reranker') or self.cfg['models']['reranker']
 
     @cached_property
     def dense(self):
@@ -80,7 +88,7 @@ class ModelBundle:
     @cached_property
     def reranker(self):
         from fastembed.rerank.cross_encoder import TextCrossEncoder
-        return verify_device(TextCrossEncoder(self.cfg['models']['reranker'],
+        return verify_device(TextCrossEncoder(self.reranker_name,
                                               providers=providers('rerank'), **self.kwargs), 'rerank')
 
     def documents(self, texts):
