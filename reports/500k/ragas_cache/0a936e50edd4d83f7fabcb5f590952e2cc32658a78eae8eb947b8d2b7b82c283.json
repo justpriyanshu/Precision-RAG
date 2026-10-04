@@ -1,0 +1,5 @@
+{
+  "score": 0.4166666666458333,
+  "metric": "context_precision",
+  "judge": "openai/gpt-oss-120b"
+}

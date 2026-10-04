@@ -1,0 +1,286 @@
+{
+  "judge_model": "openai/gpt-oss-120b",
+  "ragas_version": "0.2.15",
+  "rows": [
+    {
+      "qid": "1101272",
+      "user_input": "do thermostats contain mercury",
+      "reference": "Yes, thermostats contains mercury.",
+      "retrieved_contexts": [
+        "Read the package label. Thermostats with mercury will have the “Hg” sign for mercury on the packaging. Most thermostats sold today don't contain mercury. Programmable electronic thermostats and many manual thermostats are now mercury-free. Businesses and households in King County cannot dispose of mercury in the garbage or down the drain.",
+        "If so, it needs to be recycled. It’s the law.*. If the thermostat uses a dial or lever, odds are it contains mercury and needs. to be recycled. Containing between 3 and 12 grams mercury, thermostats are. likely the device in homes that have the most mercury today. Examples of mercury thermostats:",
+        "A. In normal use, mercury-containing thermostats are safe; the consumer is not exposed to the mercury, which is sealed inside a glass bulb. Mercury thermostats were designed with a sturdy casing to hold and protect the sealed glass bulb inside. Nevertheless, it's prudent to use mercury thermostats with care.",
+        "Gas-fired appliances, including ovens, water heaters, furnaces, poll heaters, and appliances in some recreational vehicles, may contain mercury. Older models may have pilot light sensors containing mercury. If you do not know if an appliance contains mercury, contact the manufacturer.",
+        "Mercury thermostats use mercury switches to sense and control room temperature through communication with heating, ventilating, and air conditioning (HVAC) equipment. Mercury thermostats contain bimetal coils that contract and expand with room temperature. When the coil contracts or expands, it activates the mercury switch, which opens or closes a circuit to make the furnace, heat pump, or air conditioner turn on or off."
+      ],
+      "context_precision": 0.5888888888692593,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1100600",
+      "user_input": "appendix defined",
+      "reference": "An appendix is a collection of supplementary materials appearing at the end of a report, proposal, or book.",
+      "retrieved_contexts": [
+        "Definition of appendix for English Language Learners. : 1 a section of extra information added at the end of a book. : 2 a small tube at the beginning of the large intestine that can be removed by surgery if it becomes infected.",
+        "An appendix is a collection of supplementary materials appearing at the end of a report, proposal, or book. Here's the definition and some examples. An appendix is a collection of supplementary materials appearing at the end of a report, proposal, or book. Here's the definition and some examples.",
+        "Definition of appendix. plural. appendixes. or. appendices. play \\-də-ˌsēz\\. 1a : appendageb : supplementary material usually attached at the end of a piece of writing The book's appendix includes a bibliography.",
+        "Definition of appendix in US English - a tube-shaped sac attached to and opening into the lower end of the large intestine in humans and some other mammals., a Definition of appendix in US English - a tube-shaped sac attached to and opening into the lower end of the large intestine in humans and some other mammals., a dictionary thesaurus",
+        "Definition: A collection of supplementary materials, usually appearing at the end of a report, proposal, or book. Plural: appendixes or appendices. An appendix typically includes data and supporting documents used by the writer to develop the report."
+      ],
+      "context_precision": 0.94999999997625,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1084172",
+      "user_input": "what does bant stand for in sales",
+      "reference": "BANT, which stands for Budget, Authority, Need and Timeline.",
+      "retrieved_contexts": [
+        "Sales people have been using BANT (Budget, Authority, Needs, and Timing/Timeframe) criteria to qualify leads and prospects for a long time ever since IBM first coined that acronym. Industrial Lead Generation BANT Industrial Marketing leads for industrial sales MORE.",
+        "What does BANT stand for? The acronym BANT stands for: Funds: How a lot is the chance ready and prepared to spend? Authority: Who’s without equal determination maker? Want: Does the chance has an issue your product can clear up? Timing: Is there urgency?",
+        "BANT has fallen out of style lately, but it surely’s now not simply the method — it’s additionally how you utilize it. fails when salespeople use it like a tick list, which means they ask potentialities a sequence of rote questions with out in point of fact paying attention to their reaction or making an attempt so as to add worth.",
+        "IBM had an acronym for this, called BANT, which stands for Budget, Authority, Need and Timeline. A recent study showed that Inbound Marketing generates 54% more leads than outbound marketing campaigns.",
+        "What does BANT stand for? The acronym BANT stands for: Funds: How a lot is the chance ready and prepared to spend? Authority: Who's without equal determination"
+      ],
+      "context_precision": 0.8874999999778125,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1086582",
+      "user_input": "what are vvs",
+      "reference": "VVS is an acronym. The letters stand for Vertical Video Syndrome.",
+      "retrieved_contexts": [
+        "VVS is an acronym. The letters stand for Vertical Video Syndrome. People shooting videos vertically are believed to have VVS. It is your duty to write You are not shooting it right, dummy!, as a comment on any vertical video you encounter. Origin: YouTube, where vertical videos have become a major problem.",
+        "What Is VVS Clarity? VVS stands for “Very, Very Slightly Included” and is the next best clarity grade after Internally Flawless. Diamonds graded “VVS” have inclusions that are so slight that even a trained gemologist has a hard time seeing them under a 10x loupe.",
+        "What Is VVS Clarity? Diamonds of VVS clarity have very slight imperfections that even trained professionals cannot easily see with a loupe or microscope. The VVS grading range is divided into two sub-grades: VVS1 and VVS2, with VVS1 being the higher grade. Click here to see a selection of VVS1/VVS2 diamonds. What Is VS Clarity?",
+        "Automated Guided Vehicles (AGVs) are mobile robots for use in production, warehousing or any environment that requires the routine movement of products. A typical use for AGVs are as forklift replacements, instead of a forklift and driver an AGV in communication with a control server will pick up a load from one position and unload it in another.",
+        "PEV is a subset of electric vehicles that includes all-electric or battery electric vehicles (BEVs), plug-in hybrid vehicles (PHEVs), and electric vehicle conversions of hybrid electric vehicles and conventional internal combustion engine vehicles."
+      ],
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1086672",
+      "user_input": "what are three delegated powers?",
+      "reference": "Some of the powers delegated to the federal government by the United States Constitution include the power to coin money, regulate commerce with foreign nations, regulate interstate commerce, establish post offices, punish crimes committed on the high seas, and establish import duties and tariffs.",
+      "retrieved_contexts": [
+        "Delegated powers are government powers specifically outlined in the U.S. Constitution. These powers limit what Congress can do, and also define what Congress is in charge of regulating. Delegated powers are those authorities that the Constitutional framers deemed worthy of Congressional effort and which the framers believed would not limit personal freedoms of individuals. The U.S. Constitution, which is both a concise, and a very old document, establishes rules on what Congress does and does not have control over.",
+        "There are three categories of presidential power: Constitutional powers: powers explicitly granted by the Constitution Delegated powers: powers granted by Congress to help the president fulfill his duties Inherent powers: powers inherent in the president’s power as chief of the executive branch Constitutional and delegated powers make up the expressed powers because these powers are clearly outlined in the Constitution.",
+        "Delegated powers are those specifically assigned to the national government. Also known as enumerated powers, the list of the expressed powers is in Article I, Section 8 of the U.S. Constitution. Some of the exclusive powers include coining money, making treaties, regulating interstate and international commerce and maintaining a postal system.",
+        "Some delegated powe … rs include Ability to tax The ability to declare war grant copyrights and patents have an army and a navy regulate trade and coin money Delegated powers are defined as powers authorized to be practiced by subordinates in the name of a superior authority.",
+        "Best Answer: If talking about the US federal government, delegated powers are also called Enumerated Powers. It's a list in Article 1 Section 8 of the US ..."
+      ],
+      "context_precision": 0.4166666666458333,
+      "context_recall": 0.0
+    },
+    {
+      "qid": "1078560",
+      "user_input": "what hospital did joan rivers die in?",
+      "reference": "Joan Rivers died in a New York hospital.",
+      "retrieved_contexts": [
+        "Charles William Bush. UPDATE: The hospital that has admitted Joan Rivers following her health scare has released the following statement: This morning, Joan Rivers was taken to The Mount Sinai Hospital in New York, where she is being attended to, said hospital rep Sid Dinsay. Her family wants to thank everybody for their outpouring of love and support. We will provide an update on her condition as it becomes available..",
+        "(CNN)-- Comedian Joan Rivers died in a New York hospital Thursday afternoon, a week after suffering cardiac arrest during a medical procedure, her daughter said. She passed peacefully at 1:17 p.m. surrounded by family and close friends, Melissa Rivers said in a written statement.",
+        "STORY HIGHLIGHTS. 1 New York medical examiner's office will investigate Rivers' death. 2 Joan Rivers' funeral will be at Temple Emanu-El in Manhattan on Sunday. 3 She was undergoing a procedure at clinic, she suffered cardiac and respiratory arrest. 4 Rivers, 81, had been on life support at Manhattan's Mount Sinai hospital.",
+        "Comedienne Joan Rivers dies at age 81 - just a week after routine throat procedure left her in a coma. Legendary comedienne Joan Rivers died in a Manhattan hospital today, a week after she went into cardiac arrest during a routine throat procedure.",
+        "Joan Rivers remains in stable but critical condition after being hospitalized for complications from throat surgery, while more details about her health scare have been revealed. The 81-year-old comedienne and host of E!'s Fashion Police was rushed to a hospital in New York City on Thursday after she stopped breathing while undergoing a minor endoscopic procedure at a medical clinic, a source told E!"
+      ],
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1090178",
+      "user_input": "synonyms for classification",
+      "reference": "Synonyms for classification are: category brand, breed, caste, category, clan, class, degree, and denomination.",
+      "retrieved_contexts": [
+        "Synonyms for classification in English including definitions, and related words.",
+        "Classification synonyms. Top classification synonyms (other words for classification) are quality, category and class.",
+        "Synonyms for Classification: category (noun) brand, breed, caste, category, clan, class, degree, denomination,",
+        "dinosaur remains that do not fit any existing classification Synonyms of classification bracket, category, class, division, family, genus, grade, group, kind, league, order, rank(s), rubric, set, species, tier, type Words Related to classification description, feather, ilk, kidney, like, manner, nature, sort branch, section, speciality, specialty, subclass, subdivision, subgroup, subspecies, variety",
+        "classification | synonyms: brand, breed, caste, category, clan, class, degree, denomination, designation, family, feather, form, genotype, genus, grade, grain, ilk, kind, kingdom, label, level, line, make, mold, order, people, persuasion, phylum, race, rank, series, set, sort, species, stamp, step, stock, strain, stripe, style, taxonomy, type, variety, adopt, allocation, allotment, allotting, analysis, appellation, appoint, apportionment, appraisal, area, arrange, arrangement, array ..."
+      ],
+      "context_precision": 0.6791666666496875,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1100679",
+      "user_input": "extranuclear genes definition",
+      "reference": "Extranuclear genes are all of the genetic information in a cell was initially thought to be confined to the DNA in the chromosomes of the cell nucleus.",
+      "retrieved_contexts": [
+        "Heredity - Extranuclear DNA: All of the genetic information in a cell was initially thought to be confined to the DNA in the chromosomes of the cell nucleus. It is now known that small circular chromosomes, called extranuclear, or cytoplasmic, DNA, are located in two types of organelles found in the cytoplasm of the cell.",
+        "extra-chromosomal genetic elements. small circular, double stranded DNA molecule. exist and replicate independently of bacterial chromosome. less than 30 genes. encode traits not essential for normal metabolism, growth, or cellular reproduction.",
+        "Uniparental inheritance occurs in extranuclear genes when only one parent contributes organellar DNA to the offspring. A classic example of uniparental gene transmission is the maternal inheritance of human mitochondria. The mother's mitochondria are transmitted to the offspring at fertilization via the egg.",
+        "Heterozygous: Possessing two different forms of a particular gene, one inherited from each parent.",
+        "alternative forms of a gene are called as alleles.."
+      ],
+      "context_precision": 0.99999999995,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "237373",
+      "user_input": "how is soil created from rocks",
+      "reference": "There are four basic “ingredients” that go into the “recipe” for making soil: tiny pieces of rock, decayed plants and animals, water, and air.",
+      "retrieved_contexts": [
+        "Soil Formation Soils may be formed in place from rock or formed in weathered rock and minerals that have been transported from where the original rock occurred. Rocks Consist of mixtures of minerals. Igneous Metamorphic Sedimentary Igneous rocks are formed from molten magma and contain primary minerals.",
+        "| Filed Under: Universe 3 Comments. There are four basic “ingredients” that go into the “recipe” for making soil: tiny pieces of rock, decayed plants and animals, water, and air. When small pieces of rock break off larger ones, they form the basis of all soil.",
+        "The formation of soil depends on the parent material (i.e. the original material from which the soil is derived), the climate and topography of the area, the organisms present in the soil, and the time over which the soil has been developing.",
+        "There can be no life without soil and no soil without life; they have evolved together.. Charles E. Kellogg, USDA Yearbook of Agriculture, 1938. A healthy soil is made up of about 50% porous spaces, 45% pulverized rock and 5% organic matter. It is sometimes called the living skin of the Earth. It rests on a bed of rock-the parent material from which its mineral, non-living portion was formed.",
+        "For example, if soils are formed from an area with large rocks (parent rocks) of red sandstone, the soils will also be red in color and have the same feel as its parent material. Time: Soils can take many years to form."
+      ],
+      "context_precision": 0.999999999975,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1085602",
+      "user_input": "what county is colerain ohio in",
+      "reference": "Colerain Township is in Hamilton County, Ohio.",
+      "retrieved_contexts": [
+        "Colerain /ˈkoʊlreɪn/ is an unincorporated community in eastern Colerain Township, Belmont County, Ohio, United States. Although it is unincorporated, it has a post office, with the ZIP code of 43916. It lies along U.S. Route 250. Colerain is part of the Wheeling, WV-OH Metropolitan Statistical Area.",
+        "Colerain Township, Hamilton County, Ohio. 232 likes. Colerain Township is one of the twelve townships of Hamilton County, Ohio, United States. The...",
+        "Tuscarawas County Auditor 125 East High Avenue New Philadelphia OH 44663 41.9 miles from Colerain 330-365-3220. Guernsey County Auditor's Office 627 Wheeling Avenue Cambridge OH 43725 42.0 miles from Colerain 740-432-9241. Tyler County Assessor's Office PO Box 2 Middlebourne WV 26149 43.9 miles from Colerain 304-758-4781",
+        "Thank You to our Funders: The Community Foundation of Lorain County, The City of Oberlin and, of course, our individual, business, non-profit and faith-baised partners who believe in and support our mission! MAIN STREETS ACROSS AMERICA. OBERLIN, OHIO - MAIN STREET.",
+        "North Ridgeville, Ohio; Rocky River, Ohio; Westlake, Ohio; Buyers. Home Buyer’s Guide; Buyer Calculators; Home Buying Articles; Cuyahoga County Property Tax Rates (2016) Lorain County Property Tax Rates (2016) Medina County Property Tax Rates (2016) Sellers. The 1-Day Listing Agreement; Expired Listing? Automated Home Valuation; Home Selling Tips; Home Selling Articles"
+      ],
+      "context_precision": 0.49999999995,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1065551",
+      "user_input": "what is a variable factor",
+      "reference": "A variable factor is anything in your experiment that can change.",
+      "retrieved_contexts": [
+        "a variable factor is anything in your experiment that can change. not like a control factor, which is kept constant through the whole experiment. a variable factor is anything in your experiment that can change. not like a control factor, which is kept constant through the whole experiment.",
+        "What is the difference between a factor and variable? A factor of an experiment is a controlled independent variable; a variable whose the differences between means for different levels of one factor. Edit Share to:",
+        "Factor variables are also very useful in many different types of graphics. Furthermore, storing string variables as factor variables is a more efficient use of memory. To create a factor variable we use the factor function. The only required argument is a vector of values which can be either string or numeric. Often times an experiment includes trials for different levels of some explanatory variable.",
+        "Factor variables are categorical variables that can be either numeric or string variables. There are a number of advantages to converting categorical variables to factor variables. Perhaps the most important advantage is that they can be used in statistical modeling where they will be implemented correctly, i.e., they will then be assigned the correct number of degrees of freedom.",
+        "Factor variables are categorical variables that can be either numeric or string variables. There are a number of advantages to converting categorical variables to factor variables. Perhaps the most important advantage is that they can be used in s..."
+      ],
+      "context_precision": 0.9999999999666667,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1083296",
+      "user_input": "what does paas stands for?",
+      "reference": "PAAS stands for Platform-as-a-Service.",
+      "retrieved_contexts": [
+        "PaaS. The acronym PaaS stands for Platform as a Service. PaaS is an extension of the SaaS (Software as a Service) model, which allows for the use of applications hosted remotely. What is PaaS?",
+        "Technically, a PaaS is an Application Platform comprised of an operating system, middleware and other software that allows applications to run on the cloud with much of the management, security, scaling and other stack related headaches abstracted away.aaS makes it faster, easier, and cheaper to launch your next big application idea. PaaS is not an Application. It’s a platform! SaaS, or Software-as-a-Service, solutions represent a complete application that is running on the cloud.",
+        "8 definitions of PAAS. Meaning of PAAS. What does PAAS stand for? PAAS abbreviation. Define PAAS at AcronymFinder.com",
+        "PaaS: Platform-as-a-Service: PAAS: Product as a Service: PAAS: Pacification Attitude Analysis System: PAAS: Palo Alto Animal Services (California) PAAS: Program in African American Studies (university) PAAS: Polish Academy of Arts and Sciences: PAAS: Passive Active All Weather System: PAAS: Personnel Accountability and Assessment System (software)",
+        "PaaS is a cloud application platform that automates the hosting, configuration, deployment, and administration of application stacks in an elastic cloud environment. It gives application developers self-service access so they can easily deploy applications on demand. Make the right choice with OpenShift.hether it’s an on-premise product like OpenShift Enterprise by Red Hat ® or a public product like OpenShift Online by Red Hat, you’ll have access to an award-winning platform that helps get your next big idea to market ahead of your competition. Download now. Get a free evaluation of OpenShift Enterprise."
+      ],
+      "context_precision": 0.9166666666361111,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1083007",
+      "user_input": "what does slainte mean?",
+      "reference": "Slainte is a Gaelic word which means health.",
+      "retrieved_contexts": [
+        "Slainte is a Gaelic word which means “health,” and it is used in cheers to mean “good health” or “to your health.” In Scotland, you may hear people say “slainte mhath.” Many people associate this word specifically with Ireland and Irish culture, and thanks to a great interest in Gaelic and Ireland, “slainte” is a cheer often heard far from Irish ...",
+        "What does slainte mean? Definitions for slainte Here are all the possible meanings and translations of the word slainte.",
+        "‘‘Slainte,’ he said, raising his glass’ More example sentences ‘Here's health, or slainte, as we say in Irish, and good wishes for the years ahead.’ ‘We wish them slainte is saol fada and we understand that they will be residing in Tuam, County Galway.’ ‘I say slainte Ronan - you're Amputee of the Week!’ Synonyms",
+        "Find and save ideas about What does slainte mean on Pinterest. | See more ideas about Irish girls, Irish pride and Irish sayings. Find and save ideas about What does slainte mean on Pinterest. | See more ideas about Irish girls, Irish pride and Irish sayings.",
+        "Define slain. slain synonyms, slain pronunciation, slain translation, English dictionary definition of slain. v. Past participle of slay. vb the past participle of slay v. slew, slain, slay•ing. v.t. 1. to kill by violence."
+      ],
+      "context_precision": 0.8333333332916666,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1083493",
+      "user_input": "what does lh rh mean",
+      "reference": "LHRH means Luteinising Hormone Releasing Hormone.",
+      "retrieved_contexts": [
+        "13 definitions of LH. Definition of LH in Slang/Internet Slang. What does LH stand for?",
+        "The Rh factor refers to a protein that may or may not be found on the surface of an individual’s red blood cells. A person who has this protein present in her blood is Rh positive and a person who does not is Rh negative. A person’s Rh factor is an inherited condition with Rh positive being the dominant gene.",
+        "How is it used? The test for luteinizing hormone (LH), a hormone associated with reproduction and the stimulation of the release of an egg from the ovary (ovulation) in women and testosterone production in men, has several uses. To evaluate LH levels during the menstrual cycle; multiple urine LH tests may be ordered for this purpose.",
+        "Rhesus (Rh) factor is an inherited protein found on the surface of red blood cells. If your blood has the protein, you're Rh positive. If your blood lacks the protein, you're Rh negative. Rh positive is the most common blood type. Having an Rh negative blood type is not an illness and usually does not affect your health.",
+        "Luteinizing hormone. Luteinizing hormone (LH, also known as lutropin and sometimes lutrophin) is a hormone produced by gonadotropic cells in the anterior pituitary gland. In females, an acute rise of LH (LH surge) triggers ovulation and development of the corpus luteum."
+      ],
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "qid": "1085757",
+      "user_input": "what continent can mt kilimanjaro be found in",
+      "reference": "Mt. Kilimanjaro can be found in the continent of Africa.",
+      "retrieved_contexts": [
+        "Another is that Kilimanjaro is the European pronunciation of a KiChagga phrase meaning we failed to climb it. One of the Seven Summits (the highest peaks on the seven continents), Kilimanjaro is in Tanzania in east Africa. Kilimanjaro lies within the 292-square-mile (756 square kilometers) Kilimanjaro National Park.",
+        "Mt. Kilimanjaro Mt. Kilimanjaro (5,895 meters) is the highest mountain in Africa. It is located in Tanzania.Other Kilimanjaro tidbits. (Read more about Africa's magnificent mountain on Answers.com, via the Related link below.).he highest mountain in Africa is Mount Kilimanjaro standing at 19,341 feet, which is a dif … ference of almost 10,000 feet in height.",
+        "Kilimanjaro is the highest mountain in Africa and is located in Northeast Tanzania, near the Kenya border.he tallest mountain in the world is Mauna Kea, located in Hawaii. Mauna Kea's base is on the Pacific Ocean floor, with several thousand feet of the mountain being below sea level. Although it is the tallest mountain in the world, it's measurement from above sea level to peak is 4,207 meters (13,803 ft.).",
+        "Africa is located in between the Atlantic Ocean and Indian Ocean, and to the north is the Mediterranean Sea. Africa is the only continent large enough to be in both the northern temperate and southern temperate zones. The equator also runs through several countries in Africa.At 19,340 feet, the highest point in Africa is Mt. Kilimanjaro, located in Tanzania and is a popular mountain climbing destination. The lowest point on the African continent is Lake ‘Asal, located in Djibouti, at 502 feet below sea level.frica is the only continent large enough to be in both the northern temperate and southern temperate zones. The equator also runs through several countries in Africa. At 19,340 feet, the highest point in Africa is Mt. Kilimanjaro, located in Tanzania and is a popular mountain climbing destination.",
+        "What Country in Africa is Mount Kilimanjaro and is it North South East or West of that Country ect? Please be specifc Source(s): country africa mount kilimanjaro north south east west country ect: https://tr.im/9bNf2"
+      ],
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1090076",
+      "user_input": "telephone number for bay state physical therapy in quincy ma",
+      "reference": "The telephone number of Bay State Physical Therapy Clinic of Quincy, Massachusetts is 617-471-4491.",
+      "retrieved_contexts": [
+        "View contact info, business hours, full address for Bay State Physical Therapy in Quincy, MA 617-770-0022. Whitepages is the most trusted online directory. Person",
+        "Bay State Physical Therapy is a well known Physical Therapy Clinic of Quincy, Massachusetts. It is situated at 111 Willard St, Suite 2a, Quincy and it's contact number is 617-471-4491. The authorized person of Bay State Physical Therapy is Dr. Steven Windwer who is Owner of the clinic and his contact number is 617-471-4491. Active license number of Bay State Physical Therapy is PT5835 for Physical Therapy in Massachusetts.",
+        "Bay State Physical Therapy is a well known Chiropractic Clinic of Quincy, Massachusetts. It is situated at 111 Willard St, Suite 2a, Quincy and it's contact number is 617-471-4491. The authorized person of Bay State Physical Therapy is Dr. Steven Windwer who is Owner of the clinic and his contact number is 617-471-4491. Active license number of Bay State Physical Therapy is 1542 for Chiropractic in Massachusetts.",
+        "Bay State Physical Therapy is a Sports Medicine Physician at 111 Willard, Quincy, MA 02169. Wellness.com provides reviews, contact information, driving directions and the phone number for Bay State Physical Therapy in Quincy, MA. Directory Specialists Cardiologists Chiropractors Dermatologists ENT Doctors Eye Doctors Family Doctors",
+        "Bay State Physical Therapy - Chiropractic Clinic in Quincy, MA with specialization, professional identification codes, medical licenses, location, appointment booking contact number details"
+      ],
+      "context_precision": 0.5833333333041666,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1080380",
+      "user_input": "what four assumptions are made for production possibilities?",
+      "reference": "For production possibilities, four assumptions are: (1) resources are used to produce one or both of only two goods, (2) the quantities of the resources do not change, (3) technology and production techniques do not change, and (4) resources are used in a technically efficient way.",
+      "retrieved_contexts": [
+        "ASSUMPTIONS, PRODUCTION POSSIBILITIES: The four key assumptions underlying production possibilities analysis are: (1) resources are used to produce one or both of only two goods, (2) the quantities of the resources do not change, (3) technology and production techniques do not change, and (4) resources are used in a technically efficient way.",
+        "Consider the four key assumptions of production possibilities: 1 Two Goods: A simplifying assumption of production possibilities analysis is that the economy produces only two goods. In that the economy actually produces tens of thousands of different goods, this is one of these seemingly unrealistic assumptions.",
+        "Consider the four key assumptions of production possibilities: Two Goods: A simplifying assumption of production possibilities analysis is that the economy produces only two goods. In that the economy actually produces tens of thousands of different goods, this is one of these seemingly unrealistic assumptions.",
+        "Then we'll introduce our first model (the production possibilities graph) and use it to illustrate (1) the necessity of making choices and (2) some of the consequences Limited Resources: The Four Factors of Production",
+        "What assumptions determine the production possibilities curve? Assumptions to determine the PPC is:only 2 goods will be illustratedthe amount of resources is fixedstate of technology is constant Edit"
+      ],
+      "context_precision": 0.94999999997625,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1086438",
+      "user_input": "can lungs carry out excretory functions explain",
+      "reference": "Yes, the lungs play a mandatory role in the excretory system.",
+      "retrieved_contexts": [
+        "Why can the lungs be said to function as both a respiratory organ and an excretory organ? the lungs are a respiratory organ because they help bring oxygen to the body the lungs are a excretory organ because they get rid of waste products of the body (carbon dioxide …",
+        "The excretory system function is eliminating metabolic wastes. It is made up of the skin lungs and kidney. If the waste is not emitted, it may cause serious damage to othe…r systems in the body.",
+        "lungs considered as excretory organ because it excretes waste such as carbon dioxide and other wastes , and it is considered as respiratory because lungs involves respiration … which means as the transport of gaseous materials like oxygen in and outside of the body.",
+        "The lungs play a mandatory role in the excretory system. Your lungs remove the carbon dioxide built up in your blood using specialized cells known as alveoli. Your lungs process the molecules into gas and when you breathe, the gas is ejected from your body. If the lungs did not remove the carbon dioxide from your blood, it would eventually build up, causing a number of different dilemmas in your body.",
+        "The main function of the excretory system is to get rid of wastes from the body. It is actually composed of many different structures and organs in other systems of the bo…dy. The organs that contribute are ones like the lungs, skin, liver, kidneys, colon, and bladder, just to name a few."
+      ],
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1101002",
+      "user_input": "due process history definition",
+      "reference": "Due process is the legal requirement that the state must respect all legal rights that are owed to a person.",
+      "retrieved_contexts": [
+        "Definition of due process. 1 1 : a course of formal proceedings (such as legal proceedings) carried out regularly and in accordance with established rules and principles —called also procedural due process.",
+        "Due process. Written By: Due process, a course of legal proceedings according to rules and principles that have been established in a system of jurisprudence for the enforcement and protection of private rights. In each case, due process contemplates an exercise of the powers of government as the law permits and sanctions, under recognized safeguards for the protection of individual rights.",
+        "Due Process is that which comports with the deepest notions of what is fair and right and just.”1 The content of due process is “a historical product”2 that traces all the way back to chapter 39 of Magna Carta, in which King John promised that “[n]o free man shall be taken or imprisoned or disseized or exiled or in any way destroyed, nor will we go upon him nor send upon him, except by the lawful judgment of his peers or by the law of the land.”3 The phrase “due process of law ...",
+        "Due process. Due process is the legal requirement that the state must respect all legal rights that are owed to a person. Due process balances the power of law of the land and protects the individual person from it. When a government harms a person without following the exact course of the law, this constitutes a due process violation, which offends the rule of law. Due process has also been frequently interpreted as limiting laws and legal proceedings so that judges, instead of legislators, may define and g",
+        "DUE PROCESS. History and Scope. ''It is now the settled doctrine of this Court that the Due Process Clause embodies a system of rights based on moral principles so deeply imbedded in the traditions and feelings of our people as to be deemed fundamental to a civilized society as conceived by our whole history."
+      ],
+      "context_precision": 0.99999999998,
+      "context_recall": 1.0
+    },
+    {
+      "qid": "1089528",
+      "user_input": "todd schnitt net worth",
+      "reference": "Todd Schnitt net worth is $2 million dollars.",
+      "retrieved_contexts": [
+        "Todd Schnitt Net Worth is $2 Million. Todd Schnitt Salary is $500 Thousand. Todd Schnitt Nationality is United States of America. Todd Schnitt Date of Birth is 1966-01-24. Todd Schnitt Place of Birth is Americas.. Todd Andrew Schnitt (born January 24, 1966) is an American conserv...",
+        "Nationality: United States of America. Date of Birth: 1966-01-24. Place of Birth: Americas. Todd Schnitt net worth and salary: Todd Schnitt is an American radio host who has a net worth of $2 million dollars. Todd Schnitt was born in New York, New York, and grew up in Nanuet, New York. His family later relocated to Virginia Beach, Virginia when he was in his mid-teens, and he began working for a local radio station.",
+        "Todd Schnitt net worth and salary: Todd Schnitt is an American radio host who has a net worth of $2 million dollars. Todd Schnitt net worth and salary: Todd Schnitt is an American radio host who has a net worth of $2 million dollars. Todd Schnitt was born in New York, New York, and grew up in Nanuet, New York. His family later relocated to Virginia Beach, Virginia when he was in his mid-teens, and he began working for a local radio station.",
+        "Todd Schnitt Net Worth $2 Million. Although born in New York City, Todd lived in Nanuet, New York for the first ten years of his life, after which he and his family moved to Virginia Beach, Virginia. From an early age, Todd was amazed by radio, and often listened to WABC.",
+        "Todd Schnitt Net Worth: Age, Height, Weight, Bio. Last Updated February 8, 2017 DJs Leave a comment"
+      ],
+      "context_precision": 0.999999999975,
+      "context_recall": 1.0
+    }
+  ]
+}

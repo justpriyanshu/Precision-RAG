@@ -23,7 +23,8 @@ def providers(component):
         return ['CPUExecutionProvider']
     preload_cuda()
     return [('CUDAExecutionProvider', {'device_id': 0, 'gpu_mem_limit': 2 * 1024**3,
-                                       'arena_extend_strategy': 'kSameAsRequested', 'use_tf32': 0}),
+                                       'arena_extend_strategy': 'kSameAsRequested', 
+                                       'use_tf32': 1 if component == 'rerank' else 0}),
             'CPUExecutionProvider']
 
 

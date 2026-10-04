@@ -1,0 +1,5 @@
+{
+  "score": 1.0,
+  "metric": "context_recall",
+  "judge": "openai/gpt-oss-120b"
+}

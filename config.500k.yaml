@@ -1,7 +1,7 @@
-collection: msmarco_v21_100k_final   # CUDA-built in 189 s; see reports/archive
+collection: msmarco_v21_500k   # CUDA-built in 189 s; see reports/archive
 qdrant_url: http://localhost:6333
-data_dir: data
-reports_dir: reports
+data_dir: data/500k
+reports_dir: reports/500k
 models:
   dense: BAAI/bge-small-en-v1.5
   sparse: Qdrant/bm25
@@ -16,7 +16,7 @@ dataset:
   config: v2.1
   revision: a47ee7aae8d7d466ba15f9f0bfac3b3681087b3a
   tokenizer_revision: 5c38ec7c405ec4b44b94cc5a9bb96e735b38267a
-  passages: 100000
+  passages: 500000
   eval_queries: 100
   tuning_queries: 50
   seed: 42

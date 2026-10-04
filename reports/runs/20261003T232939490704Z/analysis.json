@@ -1,0 +1,306 @@
+{
+  "n_boot": 2000,
+  "modes": {
+    "dense": {
+      "mrr@10": {
+        "mean": 0.6060634920634922,
+        "low": 0.5343940476190476,
+        "high": 0.6783714285714284,
+        "n": 100
+      },
+      "recall@5": {
+        "mean": 0.87,
+        "low": 0.8,
+        "high": 0.93,
+        "n": 100
+      },
+      "ndcg@10": {
+        "mean": 0.6891382888185217,
+        "low": 0.6300746419525942,
+        "high": 0.7465646985228689,
+        "n": 100
+      },
+      "context_precision": {
+        "mean": 0.8054861110774786,
+        "low": 0.6982222221910711,
+        "high": 0.8969548610599377,
+        "n": 20
+      },
+      "context_recall": {
+        "mean": 0.9,
+        "low": 0.75,
+        "high": 1.0,
+        "n": 20
+      }
+    },
+    "hybrid_rerank_rrf": {
+      "mrr@10": {
+        "mean": 0.7148730158730159,
+        "low": 0.6499450396825397,
+        "high": 0.7818607142857142,
+        "n": 100
+      },
+      "recall@5": {
+        "mean": 0.91,
+        "low": 0.85,
+        "high": 0.96,
+        "n": 100
+      },
+      "ndcg@10": {
+        "mean": 0.7749810142998043,
+        "low": 0.7217642709797725,
+        "high": 0.829447972381275,
+        "n": 100
+      },
+      "context_precision": {
+        "mean": 0.8997916666282759,
+        "low": 0.8133333333031186,
+        "high": 0.965833333279393,
+        "n": 20
+      },
+      "context_recall": {
+        "mean": 0.9,
+        "low": 0.75,
+        "high": 1.0,
+        "n": 20
+      }
+    }
+  },
+  "paired_vs_dense": {
+    "hybrid_rerank_rrf": {
+      "mrr@10": {
+        "mean_diff": 0.10880952380952381,
+        "low": 0.035286309523809525,
+        "high": 0.17973392857142856,
+        "p_improved": 0.999,
+        "queries_better": 35,
+        "queries_worse": 17,
+        "n": 100
+      },
+      "recall@5": {
+        "mean_diff": 0.04,
+        "low": -0.02,
+        "high": 0.1,
+        "p_improved": 0.8695,
+        "queries_better": 7,
+        "queries_worse": 3,
+        "n": 100
+      },
+      "ndcg@10": {
+        "mean_diff": 0.08584272548128231,
+        "low": 0.029389773117261136,
+        "high": 0.14065374742110445,
+        "p_improved": 0.9995,
+        "queries_better": 35,
+        "queries_worse": 18,
+        "n": 100
+      },
+      "context_precision": {
+        "mean_diff": 0.09430555555079748,
+        "low": 0.01872569444165091,
+        "high": 0.19556423610309015,
+        "p_improved": 0.997,
+        "queries_better": 10,
+        "queries_worse": 3,
+        "n": 20
+      },
+      "context_recall": {
+        "mean_diff": 0.0,
+        "low": 0.0,
+        "high": 0.0,
+        "p_improved": 0.0,
+        "queries_better": 0,
+        "queries_worse": 0,
+        "n": 20
+      }
+    }
+  },
+  "by_category": {
+    "dense": {
+      "description": {
+        "queries": 64,
+        "mrr@10": 0.6220610119047619,
+        "recall@5": 0.875,
+        "ndcg@10": 0.700471009486705
+      },
+      "entity": {
+        "queries": 12,
+        "mrr@10": 0.6249999999999999,
+        "recall@5": 0.8333333333333334,
+        "ndcg@10": 0.6775774794642881
+      },
+      "location": {
+        "queries": 11,
+        "mrr@10": 0.5616161616161617,
+        "recall@5": 0.8181818181818182,
+        "ndcg@10": 0.6657938234504963
+      },
+      "numeric": {
+        "queries": 9,
+        "mrr@10": 0.5648148148148148,
+        "recall@5": 0.8888888888888888,
+        "ndcg@10": 0.6790266558189049
+      },
+      "person": {
+        "queries": 4,
+        "mrr@10": 0.5083333333333333,
+        "recall@5": 1.0,
+        "ndcg@10": 0.6294456402014998
+      }
+    },
+    "hybrid_rerank_rrf": {
+      "description": {
+        "queries": 64,
+        "mrr@10": 0.7092881944444445,
+        "recall@5": 0.90625,
+        "ndcg@10": 0.7708029547340907
+      },
+      "entity": {
+        "queries": 12,
+        "mrr@10": 0.7063492063492064,
+        "recall@5": 0.8333333333333334,
+        "ndcg@10": 0.757932736706354
+      },
+      "location": {
+        "queries": 11,
+        "mrr@10": 0.5833333333333333,
+        "recall@5": 0.9090909090909091,
+        "ndcg@10": 0.6884056606009237
+      },
+      "numeric": {
+        "queries": 9,
+        "mrr@10": 0.8555555555555556,
+        "recall@5": 1.0,
+        "ndcg@10": 0.8742363851489726
+      },
+      "person": {
+        "queries": 4,
+        "mrr@10": 0.875,
+        "recall@5": 1.0,
+        "ndcg@10": 0.9077324383928644
+      }
+    }
+  },
+  "judge_vs_human": {
+    "dense": {
+      "judged_queries": 20,
+      "spearman_precision_vs_mrr": 0.20604323051051296,
+      "mean_precision_when_human_passage_in_top5": 0.8607253086068742,
+      "mean_precision_when_human_passage_missing": 0.3083333333129167,
+      "queries_with_human_passage_in_top5": 18,
+      "queries_without": 2
+    },
+    "hybrid_rerank_rrf": {
+      "judged_queries": 20,
+      "spearman_precision_vs_mrr": 0.30415313113346454,
+      "mean_precision_when_human_passage_in_top5": 0.9242647058412888,
+      "mean_precision_when_human_passage_missing": 0.7611111110878704,
+      "queries_with_human_passage_in_top5": 17,
+      "queries_without": 3
+    }
+  },
+  "selective": {
+    "hybrid_rerank_rrf": {
+      "n": 100,
+      "hits": 91,
+      "hit_rate": 0.91,
+      "thresholds": {
+        "weak": 3.426828384399414,
+        "strong": 7.243713855743408
+      },
+      "rule": "weak = 10th percentile, strong = median of top reranker score over queries with the labelled passage in top-5",
+      "buckets": {
+        "strong": {
+          "queries": 48,
+          "hit_rate": 0.9583333333333334,
+          "context_precision": 0.8859848484470423,
+          "judged": 11
+        },
+        "weak": {
+          "queries": 39,
+          "hit_rate": 0.9230769230769231,
+          "context_precision": 0.9722222221753704,
+          "judged": 6
+        },
+        "insufficient": {
+          "queries": 13,
+          "hit_rate": 0.6923076923076923,
+          "context_precision": 0.8055555555319445,
+          "judged": 3
+        }
+      },
+      "sweep": [
+        {
+          "percentile": 0,
+          "threshold": -0.4929884374141693,
+          "coverage": 1.0,
+          "hit_rate_answered": 0.91,
+          "hit_rate_abstained": null
+        },
+        {
+          "percentile": 10,
+          "threshold": 3.1442909955978395,
+          "coverage": 0.9,
+          "hit_rate_answered": 0.9333333333333333,
+          "hit_rate_abstained": 0.7
+        },
+        {
+          "percentile": 20,
+          "threshold": 4.456869506835938,
+          "coverage": 0.8,
+          "hit_rate_answered": 0.95,
+          "hit_rate_abstained": 0.75
+        },
+        {
+          "percentile": 30,
+          "threshold": 5.2325070858001705,
+          "coverage": 0.7,
+          "hit_rate_answered": 0.9571428571428572,
+          "hit_rate_abstained": 0.8
+        },
+        {
+          "percentile": 40,
+          "threshold": 6.138590240478516,
+          "coverage": 0.6,
+          "hit_rate_answered": 0.9666666666666667,
+          "hit_rate_abstained": 0.825
+        },
+        {
+          "percentile": 50,
+          "threshold": 7.0058324337005615,
+          "coverage": 0.5,
+          "hit_rate_answered": 0.96,
+          "hit_rate_abstained": 0.86
+        },
+        {
+          "percentile": 60,
+          "threshold": 7.475886344909668,
+          "coverage": 0.4,
+          "hit_rate_answered": 1.0,
+          "hit_rate_abstained": 0.85
+        },
+        {
+          "percentile": 70,
+          "threshold": 7.994233131408691,
+          "coverage": 0.3,
+          "hit_rate_answered": 1.0,
+          "hit_rate_abstained": 0.8714285714285714
+        },
+        {
+          "percentile": 80,
+          "threshold": 8.30296745300293,
+          "coverage": 0.2,
+          "hit_rate_answered": 1.0,
+          "hit_rate_abstained": 0.8875
+        },
+        {
+          "percentile": 90,
+          "threshold": 8.721900558471681,
+          "coverage": 0.1,
+          "hit_rate_answered": 1.0,
+          "hit_rate_abstained": 0.9
+        }
+      ]
+    }
+  }
+}
